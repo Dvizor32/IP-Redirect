@@ -1,4 +1,6 @@
 <?php
+//Copyright Dornubari Vizor 2012
+//use as you wish
 final class ip2location_lite{
 	protected $errors = array();
 	protected $service = 'api.ipinfodb.com';

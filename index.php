@@ -1,4 +1,7 @@
 <?php
+
+//Copyright Dornubari Vizor 2012
+//use as you wish
 include_once('ip2locationlite.class.php');
  
 //Set geolocation cookie
@@ -14,16 +17,19 @@ if(!$_COOKIE["geolocation"]){
 }else{
   $visitorGeolocation = unserialize(base64_decode($_COOKIE["geolocation"]));
 }
+//server query if needed for secure order form
 $server_query = '';
 if (isset($_SERVER['QUERY_STRING']) && strlen($_SERVER['QUERY_STRING'])) {
 	$server_query = '?' . $_SERVER['QUERY_STRING'];
 }
 switch($visitorGeolocation["countryCode"]) {
 	case 'US':
-		header('Location: https://www.joepolish.com/freesuccesskit/step3-secureorder.php' . $server_query);
+  //United state visitors go here
+		header('Location: www.USA.com' . $server_query); //can remove server_query if not needed
 	exit;
 	default:
-		header('Location: https://www.joepolish.com/freesuccesskit/step3-secureorderinternational.php' . $server_query);
+  //International visitors go here.
+		header('Location: www.Internaional.com' . $server_query);  //can remove server_query if not needed
 	exit;
 }
 ?>
